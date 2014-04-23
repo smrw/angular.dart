@@ -2,6 +2,7 @@ library angular.core_internal;
 
 import 'dart:async' as async;
 import 'dart:collection';
+import 'dart:convert';
 import 'dart:math';
 import 'package:intl/intl.dart';
 

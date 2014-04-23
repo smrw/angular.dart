@@ -33,5 +33,11 @@ main() {
       .toEqual('"X\nY"+(A\n+B|stringify)+"C\nD"');
     });
 
+    it('should not be confused by double quotes, etc. outside mustache',
+       (Interpolate interpolate) {
+      expect(interpolate('"{{A}}"'))
+      .toEqual(r'"\""+(A|stringify)+"\""');
+    });
+
   });
 }

@@ -49,7 +49,7 @@ class Interpolate implements Function {
         if (index < startIdx) {
           // Empty strings could be stripped thanks to the stringify
           // formatter
-          expParts.add('"${template.substring(index, startIdx)}"');
+          expParts.add(JSON.encode(template.substring(index, startIdx)));
         }
         expParts.add('(' + template.substring(startIdx + startLen, endIdx) +
         '|stringify)');
@@ -58,7 +58,7 @@ class Interpolate implements Function {
         hasInterpolation = true;
       } else {
         // we did not find any interpolation, so add the remainder
-        expParts.add('"${template.substring(index)}"');
+        expParts.add(JSON.encode(template.substring(index)));
         break;
       }
     }
